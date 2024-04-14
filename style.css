@@ -1,85 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-*
-{
-    margin: 0;
-    padding: 0;
+*{
     box-sizing: border-box;
-    font-family: monospace;
+    font-family: "Poppins", sans-serif;
 }
 
 body
 {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background:
+    conic-gradient(at 10% 50%,#0000 75%,#000000 0),
+    conic-gradient(at 10% 50%,#0000 75%,#000000 0) calc(1*32px) calc(3*32px),
+    conic-gradient(at 10% 50%,#0000 75%,#000000 0) calc(2*32px) calc(1*32px),
+    conic-gradient(at 10% 50%,#0000 75%,#000000 0) calc(3*32px) calc(4*32px),
+    conic-gradient(at 10% 50%,#0000 75%,#000000 0) calc(4*32px) calc(2*32px),
+    conic-gradient(at 50% 10%,#0000 75%,#000000 0) 0 calc(4*32px),
+    conic-gradient(at 50% 10%,#0000 75%,#000000 0) calc(1*32px) calc(2*32px),
+    conic-gradient(at 50% 10%,#0000 75%,#000000 0) calc(2*32px) 0,
+    conic-gradient(at 50% 10%,#0000 75%,#000000 0) calc(3*32px) calc(3*32px),
+    conic-gradient(at 50% 10%,#0000 75%,#000000 0) calc(4*32px) calc(1*32px),
+    #0e1213;
+    background-size: 160px 160px;
+}
+.switch-div
+{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    border: 1px solid wheat;
 }
-
-.content
+/* The switch - the box around the slider */
+.switch {
+    /* Variables */
+   --switch_width: 4em;
+   --switch_height: 2em;
+   --thumb_color: #e8e8e8;
+   --track_color: #e8e8e8;
+   --track_active_color: #888;
+   --outline_color: #000;
+   font-size: 17px;
+   position: relative;
+   width: var(--switch_width);
+   height: var(--switch_height);
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+   box-sizing: border-box;
+   border: 2px solid var(--outline_color);
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: var(--track_color);
+   transition: .15s;
+   border-radius: var(--switch_height);
+  }
+  
+  .slider:before {
+   box-sizing: border-box;
+   position: absolute;
+   content: "";
+   height: var(--switch_height);
+   width: var(--switch_height);
+   border: 2px solid var(--outline_color);
+   border-radius: 100%;
+   left: -2px;
+   bottom: -2px;
+   background-color: var(--thumb_color);
+   transform: translateY(-0.2em);
+   box-shadow: 0 0.2em 0 var(--outline_color);
+   transition: .15s;
+  }
+  
+  input:checked + .slider {
+   background-color: var(--track_active_color);
+  }
+  
+  input:focus-visible + .slider {
+   box-shadow: 0 0 0 2px var(--track_active_color);
+  }
+  
+  /* Raise thumb when hovered */
+  input:hover + .slider:before {
+   transform: translateY(-0.3em);
+   box-shadow: 0 0.3em 0 var(--outline_color);
+  }
+  
+  input:checked + .slider:before {
+   transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.2em);
+  }
+  
+  /* Raise thumb when hovered & checked */
+  input:hover:checked + .slider:before {
+   transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
+   box-shadow: 0 0.3em 0 var(--outline_color);
+  }
+.main
 {
-    position: relative;
-    border: 4px solid #000;
-    width: 400px;
-    height: 450px;
-    display: flex;
-    align-items: center;
+    display: grid;
     justify-content: center;
-    background-color: aqua;
+    /* align-items: center; */
+    border: 1.5px solid aqua;
+    border-radius: 25px;
+    width: 50vw;
+    height: 50vh;
 }
 
-.login-p
+.title
 {
-    margin-top: -180px;
-    margin-bottom: 30px;
-    display: flex;
+    display: grid;
     justify-content: center;
-    width: auto;
-    height: auto;
-    border: 2px solid #000;
-    border-radius: 10px;
-    background: transparent;
+    color: aqua;
+    font-size: x-large;
+    margin-bottom: 5vh;
 }
 
-.login
+.inp
 {
-    font-size: 30px;
+    margin-top: -16vh;
 }
 
-.box
-{
+.input-group {
     position: relative;
-    margin-top: 20px;
-    width: 310px;
-    border-bottom: 2px solid #000;
-}
-
-.box label
-{
-    position: absolute;
-    top: 50%;
-    left: 7px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    transition: .5s;
-}
-
-.box input
-{
-    width: 100%;
-    height: 50px;
-    background: transparent;
+    margin-top: 15px;
+   }
+   
+   .input {
     border: none;
-    outline: none;
-}
-
-.box .icon
-{
+    border-bottom: solid 1.5px aqua;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: aqua;
+    width: 35vw;
+   }
+   
+   .user-label {
     position: absolute;
-    right: 7px;
-    font-size: 20px;
-}
-.box input:focus~label,
-.box input:valid~label
-{
-    top: -5px;
-}
+    left: 15px;
+    color: aqua;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+   }
+   
+   .input:focus, input:valid {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid aqua;
+   }
+   
+   .input:focus ~ label, input:valid ~ label {
+    transform: translateY(-50%);
+    background-color: transparent;
+    padding: 0 .2em;
+    color: aqua;
+   }
+   
+   .forgot
+   {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+   }
+
+   a
+   {
+    color: aqua;
+    text-decoration: none;
+   }
+
+   .login-div
+   {
+    margin: 0vh 0vh 3vh 0vh;
+   }
+   .login-button
+   {
+    width: 35vw;
+    height: 5vh;
+    border: 1px solid aqua;
+    background: transparent;
+    color: aqua;
+    border-radius: 10px;
+    transition: all 0.3s ease 0s;
+   }
+  
+  .login-button:hover {
+    background-color: aqua;
+    box-shadow: 0px 15px 20px rgb(14, 70, 70);
+    color: #000000;
+    transform: translateY(-7px);
+  }
+  
+  .login-button:active {
+    transform: translateY(-1px);
+  }
+
+  .sign-div
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aqua;
+  }
